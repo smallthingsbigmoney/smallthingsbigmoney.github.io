@@ -42,7 +42,7 @@ a { color: var(--accent); text-underline-offset: 3px; }
   max-width: 720px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 32px 24px 0;
+  padding: 12px 24px 0;
   display: flex;
   flex-direction: column;
 }
@@ -56,7 +56,30 @@ html[data-lang="zh"] .l-zh { display: block; }
 .l-en, .l-ja, .l-zh { word-break: normal; }
 
 /* 앱 헤더 + 탭 */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding-top: 20px;
+  background: var(--bg);
+}
+
 .brand { display: flex; align-items: center; gap: 14px; }
+.brand-text { flex: 1; min-width: 0; }
+
+.store-link {
+  flex: none;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.store-link:hover { opacity: 0.85; }
 
 .app-icon {
   border-radius: 22.5%;
@@ -71,7 +94,7 @@ html[data-lang="zh"] .l-zh { display: block; }
 .tabs {
   display: flex;
   gap: 24px;
-  margin-top: 24px;
+  margin-top: 16px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -268,23 +291,30 @@ li { margin: 4px 0; }
 
 .app-links {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 12px 0 0;
   padding-top: 12px;
   border-top: 1px solid var(--line);
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
-.app-links a { padding: 4px 0; text-decoration: none; }
-.app-links a:hover { text-decoration: underline; }
+.app-links a { padding: 2px 0; color: var(--muted); text-decoration: none; }
+.app-links a:hover { color: var(--text); text-decoration: underline; }
+.app-links a + a::before { content: "|"; margin: 0 8px; color: var(--line); display: inline-block; }
 
 @media (max-width: 760px) {
   .app-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 520px) {
-  .page { padding: 20px 16px 0; }
+  .page { padding: 4px 16px 0; }
+  .app-header { padding-top: 12px; }
+  .app-header .app-icon { width: 44px; height: 44px; }
+  .brand { gap: 12px; }
+  .tabs { margin-top: 10px; }
+  .tabs a { padding: 10px 2px; }
   h1 { font-size: 24px; }
   .tabs { gap: 0; }
   .tabs a { flex: 1; text-align: center; }
@@ -292,5 +322,7 @@ li { margin: 4px 0; }
   .details dd { margin-bottom: 10px; }
   .button { display: block; text-align: center; }
   .app-grid { gap: 12px; }
-  .app-card { padding: 20px 10px 12px; }
+  .app-card { padding: 20px 8px 12px; }
+  .app-links { font-size: 12px; }
+  .app-links a + a::before { margin: 0 6px; }
 }
