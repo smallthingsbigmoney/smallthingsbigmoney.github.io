@@ -29,7 +29,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", "Noto Sans KR", "Malgun Gothic", "Yu Gothic", "Microsoft YaHei", sans-serif;
   font-size: 16px;
   line-height: 1.7;
   word-break: keep-all;
@@ -47,7 +47,13 @@ a { color: var(--accent); text-underline-offset: 3px; }
   flex-direction: column;
 }
 
-main { flex: 1; }
+/* 언어별 블록: lang.js가 html[data-lang]을 정하면 해당 언어만 보인다 */
+.l { display: none; flex: 1; }
+html[data-lang="ko"] .l-ko,
+html[data-lang="en"] .l-en,
+html[data-lang="ja"] .l-ja,
+html[data-lang="zh"] .l-zh { display: block; }
+.l-en, .l-ja, .l-zh { word-break: normal; }
 
 /* 앱 헤더 + 탭 */
 .brand { display: flex; align-items: center; gap: 14px; }
@@ -154,17 +160,74 @@ li { margin: 4px 0; }
 .site-footer p { margin: 0; }
 .site-footer a { color: var(--muted); }
 
-.site-footer .home-link {
+/* 언어 선택 메뉴 */
+.lang-menu { position: relative; }
+
+.lang-menu summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 7px 14px;
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--text);
   font-weight: 600;
-  text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
 }
 
-.site-footer .home-link:hover { background: var(--soft); }
+.lang-menu summary::-webkit-details-marker { display: none; }
+
+.lang-menu summary::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-top: 3px;
+  border-left: 1.5px solid currentColor;
+  border-top: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.lang-menu[open] summary::after { margin-top: -3px; transform: rotate(225deg); }
+.lang-menu summary:hover, .lang-menu[open] summary { background: var(--soft); }
+
+.lang-menu .menu {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  min-width: 168px;
+  padding: 6px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  z-index: 10;
+}
+
+.lang-menu .menu button,
+.lang-menu .menu a {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.lang-menu .menu button:hover,
+.lang-menu .menu a:hover { background: var(--soft); }
+
+.lang-menu .menu button[aria-current="true"] { font-weight: 700; }
+.lang-menu .menu button[aria-current="true"]::after { content: "✓"; float: right; color: var(--muted); }
+
+.lang-menu .menu hr { margin: 6px 0; border: 0; border-top: 1px solid var(--line); }
 
 /* 첫 화면 */
 .page-home { max-width: 880px; }
@@ -185,9 +248,12 @@ li { margin: 4px 0; }
   border: 1px solid var(--line);
   border-radius: 16px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-main {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -197,7 +263,7 @@ li { margin: 4px 0; }
 
 .app-main .app-icon { margin-bottom: 14px; }
 .app-main .app-name { font-size: 17px; font-weight: 700; }
-.app-main .app-tag { margin-top: 4px; min-height: 40px; }
+.app-main .app-tag { margin-top: 4px; }
 .app-main:hover .app-name { text-decoration: underline; text-underline-offset: 3px; }
 
 .app-links {
