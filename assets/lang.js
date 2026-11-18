@@ -1,7 +1,7 @@
-// 표시 언어 결정: ?lang= 주소 값 > 직접 고른 언어 > 기기 언어 (ko/ja/zh 외에는 en)
+// 표시 언어 결정: ?lang= 주소 값 > 직접 고른 언어 > 기기 언어 (ko/ja 외에는 en)
 (function () {
-  var NAMES = { en: 'English', ko: '한국어', ja: '日本語', zh: '简体中文' };
-  var HTML_LANG = { en: 'en', ko: 'ko', ja: 'ja', zh: 'zh-Hans' };
+  var NAMES = { en: 'English', ko: '한국어', ja: '日本語' };
+  var HTML_LANG = { en: 'en', ko: 'ko', ja: 'ja' };
   var KEY = 'site-lang';
   var root = document.documentElement;
 
@@ -25,7 +25,7 @@
 
   function fromDevice() {
     var code = String(navigator.language || '').toLowerCase().slice(0, 2);
-    return code === 'ko' || code === 'ja' || code === 'zh' ? code : 'en';
+    return code === 'ko' || code === 'ja' ? code : 'en';
   }
 
   function apply(lang) {

@@ -51,9 +51,8 @@ a { color: var(--accent); text-underline-offset: 3px; }
 .l { display: none; flex: 1; }
 html[data-lang="ko"] .l-ko,
 html[data-lang="en"] .l-en,
-html[data-lang="ja"] .l-ja,
-html[data-lang="zh"] .l-zh { display: block; }
-.l-en, .l-ja, .l-zh { word-break: normal; }
+html[data-lang="ja"] .l-ja { display: block; }
+.l-en, .l-ja { word-break: normal; }
 
 /* 앱 헤더 + 탭 */
 .app-header {
