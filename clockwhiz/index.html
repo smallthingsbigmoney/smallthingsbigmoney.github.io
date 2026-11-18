@@ -37,7 +37,7 @@
         <section>
           <h2>1. 수집하는 개인정보</h2>
           <p>개발자는 이름, 이메일 주소, 연락처, 위치 정보와 같은 개인정보를 수집하지 않습니다. 회원가입과 로그인 기능이 없습니다.</p>
-          <p>앱은 카메라, 사진, 마이크, 위치, 연락처, 알림 등 기기 권한을 요청하지 않습니다.</p>
+          <p>앱은 카메라, 사진, 마이크, 위치, 연락처에 접근하지 않습니다. 요청하는 기기 권한은 알림 하나뿐이며, 허용하지 않아도 앱의 모든 기능을 사용할 수 있습니다.</p>
         </section>
         <section>
           <h2>2. 기기에 저장되는 정보</h2>
@@ -45,16 +45,24 @@
           <ul>
             <li>날짜별 퀴즈 기록</li>
             <li>시계 설정(초침 보기, 분 숫자 보기, 효과음, 진동)</li>
+            <li>알림 예약 정보(다음 알림 시각, 마지막으로 보낸 알림 문구의 순번)</li>
           </ul>
           <p>이 정보는 개발자나 외부 서버로 전송되지 않습니다.</p>
         </section>
         <section>
-          <h2>3. 광고</h2>
+          <h2>3. 알림</h2>
+          <p>앱을 처음 실행할 때 알림을 허용할지 묻습니다. 허용하면 앱을 사용한 뒤 2시간이 지났을 때 시계 놀이를 권하는 알림을 한 번 보냅니다. 알림은 오전 10시부터 오후 9시 사이에만 보내며, 그 밖의 시간에 해당하면 다음 오전 10시로 미룹니다. 그 전에 앱을 다시 열면 예약된 알림은 취소됩니다.</p>
+          <p>이 알림은 기기 안에서만 예약되는 로컬 알림입니다. 알림을 위해 개발자나 외부 서버로 전송되는 정보가 없고, 푸시 알림 서버나 기기 토큰을 사용하지 않습니다. 알림 문구에는 광고나 구매 권유가 들어가지 않습니다.</p>
+          <p>알림은 iPhone 설정 > 앱 > 시계 박사 > 알림에서 언제든지 끌 수 있습니다.</p>
+        </section>
+        <section>
+          <h2>4. 광고</h2>
           <p>앱은 화면 하단에 Google AdMob 배너 광고를 표시합니다. 어린이용 앱이므로 광고 요청에 아동 대상 처리와 전체 이용가 등급을 지정했습니다. 이 설정에서는 사용자의 관심사나 행동에 기반한 맞춤 광고가 표시되지 않고, 화면 내용에 따른 문맥 광고만 표시됩니다.</p>
           <p>앱은 앱 추적 투명성(App Tracking Transparency) 권한을 요청하지 않으며, 다른 앱이나 웹사이트에 걸쳐 사용자를 추적하지 않습니다.</p>
           <p>다만 광고 제공, 광고 성과 측정, 부정 사용 방지를 위해 Google이 다음과 같은 제한된 정보를 처리할 수 있습니다.</p>
           <ul>
             <li>기기 및 앱 정보(기기 종류, 운영체제 버전 등)</li>
+            <li>기기 식별자(앱 또는 개발자 단위로 부여되는 식별자 등). 앱이 추적 권한을 요청하지 않으므로 광고 식별자(IDFA)는 제공되지 않습니다.</li>
             <li>IP 주소와 이를 통해 추정되는 대략적인 위치</li>
             <li>광고 노출 및 광고 상호작용 정보</li>
             <li>충돌 데이터 및 성능 데이터</li>
@@ -62,7 +70,7 @@
           <p>Google의 데이터 처리 방식은 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>을 따릅니다.</p>
         </section>
         <section>
-          <h2>4. 제3자 서비스</h2>
+          <h2>5. 제3자 서비스</h2>
           <dl class="details">
             <dt>Google AdMob</dt>
             <dd>배너 광고 제공 및 광고 성과 측정</dd>
@@ -70,20 +78,20 @@
           <p>이 밖의 분석 도구나 사용자 추적 SDK는 포함되어 있지 않습니다.</p>
         </section>
         <section>
-          <h2>5. 아동의 개인정보</h2>
+          <h2>6. 아동의 개인정보</h2>
           <p>시계 박사는 어린이를 위한 앱입니다. 개발자는 아동의 개인정보를 수집하지 않으며, 광고는 위와 같이 아동 대상으로 설정해 맞춤 광고가 표시되지 않도록 했습니다. 보호자께서 궁금한 점이 있으면 지원 페이지를 통해 문의해 주세요.</p>
         </section>
         <section>
-          <h2>6. 정보의 보관 및 삭제</h2>
-          <p>퀴즈 기록과 설정은 사용자의 기기에 저장되며, 앱을 삭제하면 함께 삭제됩니다. 광고와 관련해 Google이 처리하는 데이터의 보관 및 삭제는 Google의 정책을 따릅니다.</p>
+          <h2>7. 정보의 보관 및 삭제</h2>
+          <p>퀴즈 기록, 설정, 알림 예약 정보는 사용자의 기기에 저장되며, 앱을 삭제하면 함께 삭제됩니다. 광고와 관련해 Google이 처리하는 데이터의 보관 및 삭제는 Google의 정책을 따릅니다.</p>
         </section>
         <section>
-          <h2>7. 처리방침 변경</h2>
+          <h2>8. 처리방침 변경</h2>
           <p>앱 기능, 관련 법령 또는 제3자 서비스의 변경으로 이 처리방침이 수정되는 경우, 변경된 내용과 시행일을 이 페이지에 게시합니다.</p>
         </section>
         <section>
-          <h2>8. 문의</h2>
-          <p>개인정보 처리방침 또는 앱 이용에 관한 문의는 <a href="support.html">지원 페이지</a>를 이용해 주세요.</p>
+          <h2>9. 문의</h2>
+          <p>개인정보 처리방침 또는 앱 이용에 관한 문의는 <a href="support.html">지원 페이지</a> 또는 이메일(<a href="mailto:smallthings.bigmoney@gmail.com">smallthings.bigmoney@gmail.com</a>)로 보내 주세요.</p>
         </section>
       </main>
     </div>
@@ -112,7 +120,7 @@
         <section>
           <h2>1. Personal information collected</h2>
           <p>The developer does not collect personal information such as names, email addresses, contacts, or location. The app has no sign-up or login.</p>
-          <p>The app does not request device permissions such as camera, photos, microphone, location, contacts, or notifications.</p>
+          <p>The app does not access the camera, photos, microphone, location, or contacts. The only device permission it requests is notifications, and every feature works even if you decline.</p>
         </section>
         <section>
           <h2>2. Information stored on the device</h2>
@@ -120,16 +128,24 @@
           <ul>
             <li>Daily quiz records</li>
             <li>Clock settings (show second hand, show minute numbers, sound effects, vibration)</li>
+            <li>Reminder scheduling information (the time of the next reminder and the number of the last message shown)</li>
           </ul>
           <p>This information is not sent to the developer or to any external server.</p>
         </section>
         <section>
-          <h2>3. Advertising</h2>
+          <h2>3. Notifications</h2>
+          <p>When the app is first opened, it asks whether to allow notifications. If you allow them, the app sends one reminder inviting your child to play with the clock two hours after the app was last used. Reminders are sent only between 10:00 AM and 9:00 PM; if that time falls outside those hours, the reminder is moved to the next 10:00 AM. Opening the app again before then cancels the scheduled reminder.</p>
+          <p>These are local notifications scheduled entirely on the device. No information is sent to the developer or to any external server to deliver them, and no push notification server or device token is used. The reminder text contains no advertising or purchase prompts.</p>
+          <p>You can turn notifications off at any time in iPhone Settings > Apps > Clock Whiz > Notifications.</p>
+        </section>
+        <section>
+          <h2>4. Advertising</h2>
           <p>The app shows Google AdMob banner ads at the bottom of the screen. Because this is an app for children, ad requests are tagged for child-directed treatment and limited to ads rated for general audiences. With these settings, no personalized ads based on interests or behavior are shown; only contextual ads are shown.</p>
           <p>The app does not ask for App Tracking Transparency permission and does not track users across other apps or websites.</p>
           <p>However, Google may process limited information such as the following in order to serve ads, measure ad performance, and prevent fraud.</p>
           <ul>
             <li>Device and app information (device type, operating system version, and so on)</li>
+            <li>Device identifiers (such as identifiers assigned per app or per developer). Because the app does not request tracking permission, the advertising identifier (IDFA) is not provided.</li>
             <li>IP address and the approximate location inferred from it</li>
             <li>Ad impressions and ad interactions</li>
             <li>Crash and performance data</li>
@@ -137,7 +153,7 @@
           <p>How Google handles data is governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
         </section>
         <section>
-          <h2>4. Third-party services</h2>
+          <h2>5. Third-party services</h2>
           <dl class="details">
             <dt>Google AdMob</dt>
             <dd>Serving banner ads and measuring ad performance</dd>
@@ -145,20 +161,20 @@
           <p>The app contains no other analytics tools or user-tracking SDKs.</p>
         </section>
         <section>
-          <h2>5. Children's privacy</h2>
+          <h2>6. Children's privacy</h2>
           <p>Clock Whiz is an app for children. The developer does not collect children's personal information, and ads are configured as child-directed, as described above, so that personalized ads are not shown. Parents and guardians with questions are welcome to contact us through the support page.</p>
         </section>
         <section>
-          <h2>6. Retention and deletion</h2>
-          <p>Quiz records and settings are stored on your device and are deleted when you delete the app. Retention and deletion of ad-related data processed by Google are governed by Google's policies.</p>
+          <h2>7. Retention and deletion</h2>
+          <p>Quiz records, settings, and reminder scheduling information are stored on your device and are deleted when you delete the app. Retention and deletion of ad-related data processed by Google are governed by Google's policies.</p>
         </section>
         <section>
-          <h2>7. Changes to this policy</h2>
+          <h2>8. Changes to this policy</h2>
           <p>If this policy is revised because of changes to the app's features, applicable laws, or third-party services, the changes and effective date will be posted on this page.</p>
         </section>
         <section>
-          <h2>8. Contact</h2>
-          <p>For questions about this privacy policy or the app, please use the <a href="support.html">support page</a>.</p>
+          <h2>9. Contact</h2>
+          <p>For questions about this privacy policy or the app, please use the <a href="support.html">support page</a> or email <a href="mailto:smallthings.bigmoney@gmail.com">smallthings.bigmoney@gmail.com</a>.</p>
         </section>
       </main>
     </div>
@@ -187,7 +203,7 @@
         <section>
           <h2>1. 収集する個人情報</h2>
           <p>開発者は、氏名、メールアドレス、連絡先、位置情報などの個人情報を収集しません。会員登録やログインの機能はありません。</p>
-          <p>本アプリは、カメラ、写真、マイク、位置情報、連絡先、通知などのデバイスの権限を求めません。</p>
+          <p>本アプリは、カメラ、写真、マイク、位置情報、連絡先にはアクセスしません。求めるデバイスの権限は通知のみで、許可しなくてもアプリのすべての機能をご利用いただけます。</p>
         </section>
         <section>
           <h2>2. デバイスに保存される情報</h2>
@@ -195,16 +211,24 @@
           <ul>
             <li>日ごとのクイズのきろく</li>
             <li>時計の設定（秒針を表示、分の数字を表示、効果音、振動）</li>
+            <li>通知の予約情報（次の通知時刻、最後に表示したメッセージの番号）</li>
           </ul>
           <p>これらの情報が開発者や外部サーバーに送信されることはありません。</p>
         </section>
         <section>
-          <h2>3. 広告</h2>
+          <h2>3. 通知</h2>
+          <p>アプリを初めて起動したときに、通知を許可するかどうかをお尋ねします。許可した場合、アプリを使い終えてから2時間後に、時計あそびにさそう通知を1回お送りします。通知は午前10時から午後9時の間にのみ送信し、その時間外にあたる場合は次の午前10時に繰り越します。それより前にアプリを開くと、予約された通知は取り消されます。</p>
+          <p>この通知は、デバイス内でのみ予約されるローカル通知です。通知のために開発者や外部サーバーへ送信される情報はなく、プッシュ通知サーバーやデバイストークンも使用しません。通知の文面に広告や購入の案内は含まれません。</p>
+          <p>通知は、iPhoneの設定 > アプリ > とけいはかせ > 通知 でいつでもオフにできます。</p>
+        </section>
+        <section>
+          <h2>4. 広告</h2>
           <p>本アプリは、画面下部にGoogle AdMobのバナー広告を表示します。子ども向けアプリのため、広告リクエストに子ども向け取り扱いの指定と、全年齢対象のレーティング制限を設定しています。この設定では、興味・関心や行動に基づくパーソナライズ広告は表示されず、画面の内容に応じたコンテキスト広告のみが表示されます。</p>
           <p>本アプリはApp Tracking Transparencyの許可を求めず、他のアプリやウェブサイトをまたいでユーザーを追跡することはありません。</p>
           <p>ただし、広告の配信、広告効果の測定、不正利用の防止のために、Googleが次のような限定的な情報を処理することがあります。</p>
           <ul>
             <li>デバイスおよびアプリの情報（機種、OSのバージョンなど）</li>
+            <li>デバイス識別子（アプリまたは開発者単位で割り当てられる識別子など）。本アプリはトラッキングの許可を求めないため、広告識別子（IDFA）は提供されません。</li>
             <li>IPアドレスと、そこから推定されるおおよその位置</li>
             <li>広告の表示および広告とのインタラクション情報</li>
             <li>クラッシュデータおよびパフォーマンスデータ</li>
@@ -212,7 +236,7 @@
           <p>Googleによるデータの取り扱いは、<a href="https://policies.google.com/privacy">Googleプライバシーポリシー</a>に従います。</p>
         </section>
         <section>
-          <h2>4. 第三者サービス</h2>
+          <h2>5. 第三者サービス</h2>
           <dl class="details">
             <dt>Google AdMob</dt>
             <dd>バナー広告の配信と広告効果の測定</dd>
@@ -220,20 +244,20 @@
           <p>これ以外の解析ツールやユーザートラッキングSDKは含まれていません。</p>
         </section>
         <section>
-          <h2>5. お子様の個人情報</h2>
+          <h2>6. お子様の個人情報</h2>
           <p>とけいはかせは、お子様のためのアプリです。開発者がお子様の個人情報を収集することはなく、広告は上記のとおり子ども向けに設定し、パーソナライズ広告が表示されないようにしています。保護者の方でご不明な点がありましたら、サポートページからお問い合わせください。</p>
         </section>
         <section>
-          <h2>6. 情報の保管と削除</h2>
-          <p>クイズのきろくと設定はお使いのデバイスに保存され、アプリを削除するとあわせて削除されます。広告に関連してGoogleが処理するデータの保管と削除は、Googleのポリシーに従います。</p>
+          <h2>7. 情報の保管と削除</h2>
+          <p>クイズのきろく、設定、通知の予約情報はお使いのデバイスに保存され、アプリを削除するとあわせて削除されます。広告に関連してGoogleが処理するデータの保管と削除は、Googleのポリシーに従います。</p>
         </section>
         <section>
-          <h2>7. ポリシーの変更</h2>
+          <h2>8. ポリシーの変更</h2>
           <p>アプリの機能、関連法令、または第三者サービスの変更により本ポリシーを改定する場合は、変更内容と施行日をこのページに掲載します。</p>
         </section>
         <section>
-          <h2>8. お問い合わせ</h2>
-          <p>プライバシーポリシーやアプリのご利用に関するお問い合わせは、<a href="support.html">サポートページ</a>をご利用ください。</p>
+          <h2>9. お問い合わせ</h2>
+          <p>プライバシーポリシーやアプリのご利用に関するお問い合わせは、<a href="support.html">サポートページ</a>をご利用いただくか、<a href="mailto:smallthings.bigmoney@gmail.com">smallthings.bigmoney@gmail.com</a> までメールでご連絡ください。</p>
         </section>
       </main>
     </div>
@@ -262,7 +286,7 @@
         <section>
           <h2>1. 收集的个人信息</h2>
           <p>开发者不收集姓名、电子邮件地址、联系方式、位置信息等个人信息。应用没有注册和登录功能。</p>
-          <p>应用不会请求相机、照片、麦克风、位置、通讯录、通知等设备权限。</p>
+          <p>应用不会访问相机、照片、麦克风、位置或通讯录。应用请求的设备权限只有通知一项，即使不允许，也可以使用应用的全部功能。</p>
         </section>
         <section>
           <h2>2. 保存在设备上的信息</h2>
@@ -270,16 +294,24 @@
           <ul>
             <li>按日期保存的测验记录</li>
             <li>时钟设置（显示秒针、显示分钟数字、音效、振动）</li>
+            <li>通知的预约信息（下一次通知的时间、上一次显示的提示语编号）</li>
           </ul>
           <p>这些信息不会发送给开发者或任何外部服务器。</p>
         </section>
         <section>
-          <h2>3. 广告</h2>
+          <h2>3. 通知</h2>
+          <p>首次打开应用时，应用会询问是否允许通知。如果允许，应用会在使用结束 2 小时后发送一次邀请孩子来玩时钟的提醒。提醒只在上午 10 点至晚上 9 点之间发送；如果该时间不在此范围内，则顺延到下一个上午 10 点。在此之前再次打开应用，已预约的提醒会被取消。</p>
+          <p>这些提醒是仅在设备上预约的本地通知。发送提醒时不会向开发者或任何外部服务器传送信息，也不使用推送通知服务器或设备令牌。提醒内容不包含广告或购买引导。</p>
+          <p>您可以随时在 iPhone“设置”>“App”> 시계 박사 >“通知”中关闭通知。</p>
+        </section>
+        <section>
+          <h2>4. 广告</h2>
           <p>应用会在屏幕底部显示 Google AdMob 横幅广告。由于这是一款儿童应用，广告请求已设置为面向儿童的处理方式，并限定为适合所有年龄段的广告分级。在此设置下，不会显示基于兴趣或行为的个性化广告，只显示与内容相关的情境广告。</p>
           <p>应用不会请求 App Tracking Transparency（应用跟踪透明度）权限，也不会跨其他应用或网站跟踪用户。</p>
           <p>不过，为投放广告、衡量广告效果和防止滥用，Google 可能会处理以下有限的信息。</p>
           <ul>
             <li>设备和应用信息（设备类型、操作系统版本等）</li>
+            <li>设备标识符（例如按应用或按开发者分配的标识符）。由于应用不会请求跟踪权限，因此不会提供广告标识符（IDFA）。</li>
             <li>IP 地址以及据此推断的大致位置</li>
             <li>广告展示和广告互动信息</li>
             <li>崩溃数据和性能数据</li>
@@ -287,7 +319,7 @@
           <p>Google 的数据处理方式遵循<a href="https://policies.google.com/privacy">Google 隐私权政策</a>。</p>
         </section>
         <section>
-          <h2>4. 第三方服务</h2>
+          <h2>5. 第三方服务</h2>
           <dl class="details">
             <dt>Google AdMob</dt>
             <dd>投放横幅广告和衡量广告效果</dd>
@@ -295,20 +327,20 @@
           <p>应用不包含其他分析工具或用户跟踪 SDK。</p>
         </section>
         <section>
-          <h2>5. 儿童的个人信息</h2>
+          <h2>6. 儿童的个人信息</h2>
           <p>시계 박사是一款面向儿童的应用。开发者不收集儿童的个人信息，广告也如上所述设置为面向儿童，以确保不显示个性化广告。监护人如有疑问，请通过支持页面与我们联系。</p>
         </section>
         <section>
-          <h2>6. 信息的保存与删除</h2>
-          <p>测验记录和设置保存在您的设备上，删除应用后会一并删除。与广告相关、由 Google 处理的数据，其保存和删除遵循 Google 的政策。</p>
+          <h2>7. 信息的保存与删除</h2>
+          <p>测验记录、设置和通知的预约信息保存在您的设备上，删除应用后会一并删除。与广告相关、由 Google 处理的数据，其保存和删除遵循 Google 的政策。</p>
         </section>
         <section>
-          <h2>7. 政策变更</h2>
+          <h2>8. 政策变更</h2>
           <p>如因应用功能、相关法律法规或第三方服务的变化而修订本政策，我们将在本页面公布变更内容和生效日期。</p>
         </section>
         <section>
-          <h2>8. 联系方式</h2>
-          <p>有关隐私政策或应用使用的问题，请前往<a href="support.html">支持页面</a>。</p>
+          <h2>9. 联系方式</h2>
+          <p>有关隐私政策或应用使用的问题，请前往<a href="support.html">支持页面</a>，或发送邮件至 <a href="mailto:smallthings.bigmoney@gmail.com">smallthings.bigmoney@gmail.com</a>。</p>
         </section>
       </main>
     </div>
